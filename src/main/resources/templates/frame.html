@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Numbers are beautiful</title>
+<link rel="stylesheet" th:href="@{style/style.css}" href="../static/style/style.css" type="text/css" media="screen" />
+</head>
+
+<body>
+  <div id="logo">
+    <h1>numbers</h1>
+  </div>
+  <div id="basic-accordian">
+    <div id="home-header" class="accordion_headings">
+      <a href="">Home</a> | <a href="">About</a>
+    </div>
+    <div id="home-content">
+      <div class="accordion_child">
+
+        <form action="/index" th:object="${bean}" method="POST">
+          <div class="alert" th:if="${#fields.hasErrors('global')}">
+            <p th:each="err : ${#fields.errors('global')}" th:text="${err}">Error message if present</p>
+          </div>
+          <div class="form_settings">
+            <input type="text" placeholder="What number would you like?" th:field="*{search}" />
+            <input type="submit" class="submit" value="Search" />
+          </div>
+        </form>
+
+        <div class="numbers">
+          <div class="number">1 (one)</div>
+          <ul>
+            <li>odd, symmetric (palindrome), first one-digit natural positive number</li>
+            <li>sum of all preceding natural numbers</li>
+            <li>multiplication neutral element (n * 1 = n)</li>
+            <li>1! = 1</li>
+            <li>n^0 = 1</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+    <p>
+      Made by puchal.ski | Fork me on github | <a href="http://www.html5webtemplates.co.uk">Free CSS Templates</a>
+    </p>
+  </div>
+</body>
+</html>
