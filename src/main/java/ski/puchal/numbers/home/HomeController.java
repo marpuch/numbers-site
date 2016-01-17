@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
 
-	@RequestMapping(value = "index", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String getContent(Model model) {
 		model.addAttribute("bean", new SearchBean());
 		return "frame";
 	}
 	
-	@RequestMapping(value = "index", method = RequestMethod.POST)
+	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String getContentPost(@Valid @ModelAttribute("bean") SearchBean bean, BindingResult bindingResult) {
 		bindingResult.addError(new ObjectError("bean", "Not implemented yet"));
 		return "frame";
